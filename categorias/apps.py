@@ -1,6 +1,6 @@
 from django.apps import AppConfig
 
 
-class MaracaConfig(AppConfig):
+class CategoriasConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'maraca'
+    name = 'categorias'
