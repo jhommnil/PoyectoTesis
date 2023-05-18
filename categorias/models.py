@@ -21,3 +21,6 @@ class TipoImpresora(models.Model):
 
 class ConectividadImpresora(models.Model):
     conectividad = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.conectividad

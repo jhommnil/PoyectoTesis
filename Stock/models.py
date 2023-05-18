@@ -10,7 +10,7 @@ class Impresoras(models.Model):
     precio_venta=models.DecimalField(max_digits=8, decimal_places=2)
     cantidad=models.IntegerField(default=0)
     fecha_registro=models.DateTimeField(auto_now_add=True)
-    estado=models.CharField(max_length=10, default=inactivo)
+    estado=models.CharField(max_length=10)
 
 
 
