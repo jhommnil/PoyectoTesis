@@ -1,5 +1,8 @@
 from django.db import models
 from categorias.models import MarcaImpresora, ModeloImpresora, TipoImpresora, ConectividadImpresora
+from categorias.models import MarcaMonitor, ModeloMonitor, TipoMonitor, ConectividadMonitor
+from categorias.models import MarcaTplink, ModeloTplink,TipoTplink,ConectividadTpelink
+
 # Create your models here.
 
 # Creamos el modelo impresora
@@ -12,5 +15,31 @@ class Impresoras(models.Model):
     fecha_registro=models.DateTimeField(auto_now_add=True)
     estado=models.CharField(max_length=10)
 
+    def __str__(self):
+        return f"{self.marca} {self.modelo}"
 
+class Monitor(models.Model):
+    marca = models.ForeignKey(MarcaMonitor, on_delete=models.CASCADE)
+    modelo = models.ForeignKey(Modelo, on_delete=models.CASCADE)
+    tipo_pantalla=models.ForeignKey(TipoMonitor,on_delete=models.CASCADE,default=1)
+    conectividad = models.ForeignKey(ConectividadMonitor, on_delete=models.CASCADE)
+    fecha_registro = models.DateTimeField(auto_now_add=True)
+    precio_venta = models.DecimalField(max_digits=8, decimal_places=2)
+    estado = models.CharField(max_length=50)
+    cantidad = models.IntegerField(default=0)
+
+    def __str__(self):
+        return f"{self.marca}{self.modelo}"
+
+class Tplink(models.Model):
+    marca = models.ForeignKey(MarcaTplink, on_delete=models.CASCADE)
+    modelo = models.ForeignKey(ModeloTplink, on_delete=models.CASCADE)
+    tipo= models.ForeignKey(TipoTplink,on_delete=models.CASCADE)
+    conectividad = models.ForeignKey(ConectividadTpelink,on_delete=models.CASCADE)
+    fecha_registro = models.DateTimeField(auto_now_add=True)
+    precio_venta = models.DecimalField(max_digits=8, decimal_places=2)
+    estado = models.CharField(max_length=50)
+    cantidad = models.IntegerField(default=0)
+
+    
 
