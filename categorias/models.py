@@ -80,7 +80,19 @@ class ConectividadTpelink(models.Model):
 
 #calses para la tabla Teclados
 class MarcaTeclado(models.Model):
-    marca=models.CharField(max_length=100,unique=True)
+    marca = models.CharField(max_length=100,unique=True)
 
     def __str__(self):
         return self.marca
+class ModeloTeclado(models.Model):
+    modelo = models.CharField(max_length=100,unique=True)
+
+    def __str__(self):
+        return self.modelo
+
+class TipoTeclado(models.Model):
+    tipo = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.tipo
+
